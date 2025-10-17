@@ -1,0 +1,20 @@
+﻿<MainMenu>
+  <Lib>
+    <Tools>
+      <Tool id="@NET.Acme.AppFancyCommand">
+        <Parameters>
+          <Parameter name="CustomParameter" value="//ID: 71mUJgN0sKbr, //Customer: Acme" />
+        </Parameters>
+      </Tool>
+      <Tool id="@NET.Acme.AppStandardCommand" />
+    </Tools>
+  </Lib>
+  <Commands>
+    <Command id="App.fancy">
+      <Tool idref="@NET.Acme.AppFancyCommand" />
+    </Command>
+    <Command id="App.standard">
+      <Tool idref="@NET.Acme.AppStandardCommand" />
+    </Command>
+  </Commands>
+</MainMenu>
