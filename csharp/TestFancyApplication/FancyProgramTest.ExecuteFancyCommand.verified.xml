@@ -3,7 +3,8 @@
     <Tools>
       <Tool id="@NET.Acme.AppFancyCommand">
         <Parameters>
-          <Parameter name="CustomParameter" value="//ID: 71mUJgN0sKbr, //Customer: Acme" />
+          <Parameter name="CustomParameter" value="//ID: 71mUJgN0sKbr" />
+          <Parameter name="CustomParameter" value="//Customer: Acme" />
         </Parameters>
       </Tool>
       <Tool id="@NET.Acme.AppStandardCommand" />

@@ -81,7 +81,10 @@ public class FancyProgram
             ndTool.AppendChild(ndPrms);
         }
 
-        CreateNode(ndPrms, docCmdNd, string.Join(", ", commandArgs));
+        for (var i = 0; i < commandArgs.Length; i++)
+        {
+            CreateNode(ndPrms, docCmdNd, commandArgs[i]);
+        }
 
         var doStartUi = !String.IsNullOrEmpty(ndToolId) && !String.IsNullOrEmpty(ndTool.InnerXml);
         return doStartUi;
