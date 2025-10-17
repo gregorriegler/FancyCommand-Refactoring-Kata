@@ -17,7 +17,8 @@ public class FancyProgramTest
         var xmlInput = GetTestData("Sample.xml");
         var customParams = new string[] { "//ID: 71mUJgN0sKbr", "//Customer: Acme" };
 
-        var program = new FancyProgram(new EvilUi());
+        var ui = new MockUi();
+        var program = new FancyProgram(ui);
         var mainDom = new XmlDocument();
         mainDom.LoadXml(xmlInput);
 
@@ -30,5 +31,14 @@ public class FancyProgramTest
     {
         var path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"TestData", filename);
         return File.ReadAllText(path);
+    }
+
+    public class MockUi : IUi
+    {
+        public int CalledTimes;
+        public void EvilUIMethod()
+        {
+            CalledTimes++;
+        }
     }
 }
