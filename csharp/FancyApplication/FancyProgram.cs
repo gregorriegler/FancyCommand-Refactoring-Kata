@@ -2,9 +2,9 @@ using System.Xml;
 
 public class FancyProgram
 {
-    private readonly EvilUi _ui;
+    private readonly IUi _ui;
 
-    public FancyProgram(EvilUi ui)
+    public FancyProgram(IUi ui)
     {
         _ui = ui;
     }
