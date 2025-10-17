@@ -1,8 +1,8 @@
 using System.Xml;
 
-public class UI
+public class EvilUi
 {
-    public UI()
+    public EvilUi()
     {
     }
 
@@ -15,16 +15,16 @@ public class UI
 
 public class FancyProgram
 {
-    private readonly UI _ui;
+    private readonly EvilUi _ui;
 
-    public FancyProgram(UI ui)
+    public FancyProgram(EvilUi ui)
     {
         _ui = ui;
     }
 
     public static void Main(string[] args)
     {
-        var program = new FancyProgram(new UI());
+        var program = new FancyProgram(new EvilUi());
         var mainDom = new XmlDocument();
         if (args.Length > 0)
         {

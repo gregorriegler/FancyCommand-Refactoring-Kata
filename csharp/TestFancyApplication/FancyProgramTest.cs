@@ -17,7 +17,7 @@ public class FancyProgramTest
         var xmlInput = GetTestData("Sample.xml");
         var customParams = new string[] { "//ID: 71mUJgN0sKbr", "//Customer: Acme" };
 
-        var program = new FancyProgram(new UI());
+        var program = new FancyProgram(new EvilUi());
         var mainDom = new XmlDocument();
         mainDom.LoadXml(xmlInput);
 
