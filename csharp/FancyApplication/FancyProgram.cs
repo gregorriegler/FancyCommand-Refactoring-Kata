@@ -11,7 +11,13 @@ public class FancyProgram
 
     public static void Main(string[] args)
     {
-        var program = new FancyProgram(new EvilUi());
+        var evilUi = new EvilUi();
+        NewMain(args, evilUi);
+    }
+
+    public static void NewMain(string[] args, EvilUi evilUi)
+    {
+        var program = new FancyProgram(evilUi);
         var mainDom = new XmlDocument();
         if (args.Length > 0)
         {
