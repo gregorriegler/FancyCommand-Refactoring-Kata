@@ -2,8 +2,6 @@ using System;
 using System.IO;
 using System.Threading.Tasks;
 using System.Xml;
-using Xunit;
-using VerifyTests;
 using VerifyXunit;
 using Xunit;
 
@@ -16,7 +14,7 @@ public class FancyProgramTest
     {
         // sample test data and custom parameters you could use
         var xmlInput = GetTestData("Sample.xml");
-        var customParams = new string[] { "//ID: 71mUJgN0sKbr", "//Customer: Acme" };
+        var customParams = new[] { "//ID: 71mUJgN0sKbr", "//Customer: Acme" };
 
         var ui = new MockUi();
         var program = new FancyProgram(ui);
@@ -37,6 +35,7 @@ public class FancyProgramTest
     public class MockUi : IUi
     {
         public int CalledTimes;
+
         public void EvilUIMethod()
         {
             CalledTimes++;

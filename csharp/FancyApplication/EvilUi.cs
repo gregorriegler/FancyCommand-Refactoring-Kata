@@ -1,9 +1,5 @@
 public class EvilUi : IUi
 {
-    public EvilUi()
-    {
-    }
-
     public void EvilUIMethod()
     {
         // hello
