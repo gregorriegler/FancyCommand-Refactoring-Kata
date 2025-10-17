@@ -81,6 +81,14 @@ public class FancyProgram
             ndTool.AppendChild(ndPrms);
         }
 
+        CreateNode(ndPrms, docCmdNd, string.Join(", ", commandArgs));
+
+        var doStartUi = !String.IsNullOrEmpty(ndToolId) && !String.IsNullOrEmpty(ndTool.InnerXml);
+        return doStartUi;
+    }
+
+    private static void CreateNode(XmlNode? ndPrms, XmlDocument? docCmdNd, string value)
+    {
         var cmdLnPrms = ndPrms?.SelectSingleNode("Parameter[@name='CustomParameters']");
         if (cmdLnPrms == null && docCmdNd != null)
         {
@@ -90,7 +98,7 @@ public class FancyProgram
             nodeAttrName.Value = "CustomParameter";
             cmdLnPrms.Attributes.Append(nodeAttrName);
             nodeAttrName = docCmdNd.CreateAttribute("value");
-            nodeAttrName.Value = string.Join(", ", commandArgs); // TODO this is where the Parameters are created
+            nodeAttrName.Value = value; // TODO this is where the Parameters are created
             cmdLnPrms.Attributes.Append(nodeAttrName);
             ndPrms.AppendChild(cmdLnPrms);
         }
@@ -98,11 +106,8 @@ public class FancyProgram
         {
             var nodeAttrValue = (cmdLnPrms as System.Xml.XmlElement)?.GetAttributeNode("value");
             if (nodeAttrValue != null)
-                nodeAttrValue.Value = string.Join(", ", commandArgs);
+                nodeAttrValue.Value = value;
         }
-
-        var doStartUi = !String.IsNullOrEmpty(ndToolId) && !String.IsNullOrEmpty(ndTool.InnerXml);
-        return doStartUi;
     }
 
     /*
