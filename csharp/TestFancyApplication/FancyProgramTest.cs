@@ -1,17 +1,18 @@
 using System;
 using System.IO;
-using System.Linq;
-using System.Reflection;
+using System.Threading.Tasks;
 using System.Xml;
 using Xunit;
-using Xunit.Sdk;
+using VerifyTests;
+using VerifyXunit;
+using Xunit;
 
 namespace TestFancyProgram;
 
 public class FancyProgramTest
 {
     [Fact]
-    public void ExecuteFancyCommand()
+    public Task ExecuteFancyCommand()
     {
         // sample test data and custom parameters you could use
         var xmlInput = GetTestData("Sample.xml");
@@ -29,7 +30,7 @@ public class FancyProgramTest
         mainDom.WriteTo(xmlWriter);
         stringWriter.Flush();
         var s = stringWriter.ToString();
-        Assert.Equal("", s);
+        return Verifier.Verify(s);
         // TODO: assert something
     }
 
