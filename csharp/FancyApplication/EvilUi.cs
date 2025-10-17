@@ -1,4 +1,4 @@
-public class EvilUi
+public class EvilUi : IUi
 {
     public EvilUi()
     {
