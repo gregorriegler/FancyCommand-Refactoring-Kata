@@ -24,6 +24,12 @@ public class FancyProgramTest
 
         program.ExecuteFancyCommand("App.fancy", customParams, mainDom);
 
+        var stringWriter = new StringWriter();
+        var xmlWriter = new XmlTextWriter(stringWriter);
+        mainDom.WriteTo(xmlWriter);
+        stringWriter.Flush();
+        var s = stringWriter.ToString();
+        Assert.Equal("", s);
         // TODO: assert something
     }
 
